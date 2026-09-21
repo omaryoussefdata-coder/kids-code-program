@@ -30,9 +30,20 @@ app.use((req, res, next) => {
   next();
 });
 
+// الجدول اتعمل من قبل (عن طريق migrate أو أول مرة اشتغل السيرفر)،
+// فـ createTableIfMissing لازم تبقى false دلوقتي؛ لو سبتها true هتحاول
+// تعمل الجدول/الـ primary key تاني في كل مرة السيرفر يشتغل (زي كل Cold Start
+// في Replit Autoscale)، وده بيرمي "relation session_pkey already exists"
+// وبيوقع السيرفر كله - وده بالظبط اللي كان بيحصل.
+const sessionStore = new pgSession({ pool, tableName: 'program_sessions', createTableIfMissing: false });
+// شبكة أمان: أي خطأ تاني في الـ session store يتسجل بس من غير ما يوقع السيرفر
+sessionStore.on('error', (err) => {
+  console.error('⚠️ Session store error (متجاهله عشان السيرفر يفضل شغال):', err.message);
+});
+
 app.use(
   session({
-    store: new pgSession({ pool, tableName: 'program_sessions', createTableIfMissing: true }),
+    store: sessionStore,
     secret: process.env.SESSION_SECRET || 'insecure-dev-secret',
     resave: false,
     saveUninitialized: false,
