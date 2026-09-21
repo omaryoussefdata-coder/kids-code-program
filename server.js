@@ -21,6 +21,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
+// قيمة افتراضية مضمونة (من غير أي اتصال بالداتابيز) عشان أي صفحة تقدر تتعرض،
+// حتى لو فشل أي حاجة قبل كدا (زي الـ session store)، من غير ما تعمل كراش تاني جوه صفحة الخطأ نفسها
+app.use((req, res, next) => {
+  res.locals.programName = process.env.PROGRAM_NAME || 'برنامج البرمجة للأطفال';
+  res.locals.programTagline =
+    'برنامج أونلاين بالكامل لتعليم البرمجة والتفكير الحاسوبي للأطفال من 8 إلى 16 سنة';
+  next();
+});
+
 app.use(
   session({
     store: new pgSession({ pool, tableName: 'program_sessions', createTableIfMissing: true }),
