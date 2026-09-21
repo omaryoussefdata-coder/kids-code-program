@@ -11,7 +11,10 @@ if (!connectionString) {
 } else {
   try {
     const u = new URL(connectionString);
-    console.log(`ℹ️ الداتابيز هيتصل بـ host: ${u.hostname} | db name: ${u.pathname.replace('/', '')}`);
+    // مهم: بوّاب Supabase (Session/Transaction Pooler) بيوجهك لمشروع مختلف حسب
+    // اسم المستخدم (postgres.xxxxxxx) مش حسب الـ host بس - فلازم نطبعه عشان
+    // نتأكد إن Shell والـ Deployment شغالين على نفس المشروع بالظبط
+    console.log(`ℹ️ الداتابيز هيتصل بـ host: ${u.hostname} | user: ${u.username} | db name: ${u.pathname.replace('/', '')}`);
   } catch (e) {
     console.warn('⚠️ DATABASE_URL موجودة بس شكلها مش رابط صحيح.');
   }
