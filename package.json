@@ -1,0 +1,22 @@
+{
+  "name": "kids-code-program",
+  "version": "1.0.0",
+  "private": true,
+  "description": "صفحة تقديم + لوحة أدمن لبرنامج تعليم البرمجة للأطفال (8-16 سنة)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "migrate": "node db/migrate.js",
+    "create:admin": "node scripts/create_admin.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-pg-simple": "^9.0.1",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "pg": "^8.12.0"
+  }
+}

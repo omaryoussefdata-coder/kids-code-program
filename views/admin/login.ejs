@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <%- include('../partials/head', { title: 'تسجيل دخول الأدمن' }) %>
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="login-card">
+      <span class="brand-badge">💻</span>
+      <h2 style="margin: 10px 0 4px;">لوحة تحكم <%= programName %></h2>
+      <p style="color: var(--ink-dim); margin: 0 0 22px; font-size: 0.88rem;">سجل دخولك عشان تشوف طلبات التسجيل</p>
+
+      <% if (error) { %>
+        <div class="alert alert-error"><%= error %></div>
+      <% } %>
+
+      <form method="POST" action="/admin/login">
+        <div class="form-group" style="text-align: right;">
+          <label>اسم المستخدم</label>
+          <input type="text" name="username" required autofocus>
+        </div>
+        <div class="form-group" style="text-align: right;">
+          <label>الباسورد</label>
+          <input type="password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">دخول</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <%- include('../partials/head', { title: 'طلبات التسجيل' }) %>
+</head>
+<body>
+  <%- include('../partials/admin-nav') %>
+  <div class="page container">
+    <div class="page-header">
+      <div>
+        <h1>طلبات التسجيل</h1>
+        <p>كل الأطفال اللي قدموا على البرنامج، وتقدر تتواصل معاهم من هنا مباشرة.</p>
+      </div>
+      <a href="/admin/export.csv" class="btn btn-outline btn-sm">⬇ تصدير Excel/CSV</a>
+    </div>
+
+    <div class="grid grid-4" style="margin-bottom: 24px;">
+      <div class="stat-tile"><div class="num"><%= stats.total %></div><div class="label">إجمالي الطلبات</div></div>
+      <div class="stat-tile"><div class="num"><%= stats.new %></div><div class="label">جديد</div></div>
+      <div class="stat-tile"><div class="num"><%= stats.contacted %></div><div class="label">تم التواصل</div></div>
+      <div class="stat-tile"><div class="num"><%= stats.enrolled %></div><div class="label">مسجل</div></div>
+    </div>
+
+    <div class="card">
+      <form method="GET" action="/admin" class="filters">
+        <input type="text" name="q" placeholder="دوّر بالاسم أو رقم الموبايل..." value="<%= search %>">
+        <select name="status">
+          <option value="">كل الحالات</option>
+          <% Object.keys(statusLabels).forEach(function(s) { %>
+            <option value="<%= s %>" <%= statusFilter === s ? 'selected' : '' %>><%= statusLabels[s] %></option>
+          <% }) %>
+        </select>
+        <button type="submit" class="btn btn-outline btn-sm">فلترة</button>
+        <% if (search || statusFilter) { %><a href="/admin" class="btn btn-outline btn-sm">مسح الفلاتر</a><% } %>
+      </form>
+
+      <% if (applications.length === 0) { %>
+        <div class="empty-state" style="text-align:center; padding: 40px 0; color: var(--ink-dim);">لسه مفيش طلبات تسجيل مطابقة.</div>
+      <% } else { %>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>الاسم</th>
+                <th>السن</th>
+                <th>المحافظة</th>
+                <th>رقم الطفل</th>
+                <th>رقم ولي الأمر</th>
+                <th>واتساب</th>
+                <th>الحالة</th>
+                <th>ملاحظات</th>
+                <th>التاريخ</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% applications.forEach(function(a) { %>
+                <% var waStudent = 'https://wa.me/20' + a.student_phone.slice(1); %>
+                <% var waGuardian = 'https://wa.me/20' + a.guardian_phone.slice(1); %>
+                <tr>
+                  <td><%= a.full_name %></td>
+                  <td><%= a.age %></td>
+                  <td><%= a.governorate %></td>
+                  <td>
+                    <div class="mono"><%= a.student_phone %></div>
+                    <div class="contact-links">
+                      <a class="call" href="tel:<%= a.student_phone %>" title="اتصال">📞</a>
+                      <a class="whatsapp" href="<%= waStudent %>" target="_blank" title="واتساب">💬</a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="mono"><%= a.guardian_phone %></div>
+                    <div class="contact-links">
+                      <a class="call" href="tel:<%= a.guardian_phone %>" title="اتصال">📞</a>
+                      <a class="whatsapp" href="<%= waGuardian %>" target="_blank" title="واتساب">💬</a>
+                    </div>
+                  </td>
+                  <td><% if (a.whatsapp_confirmed) { %><span class="badge badge-enrolled">مؤكد</span><% } else { %><span class="badge badge-rejected">لأ</span><% } %></td>
+                  <td>
+                    <form method="POST" action="/admin/applications/<%= a.id %>/status" style="margin:0;">
+                      <select name="status" onchange="this.form.submit()" class="badge-select">
+                        <% Object.keys(statusLabels).forEach(function(s) { %>
+                          <option value="<%= s %>" <%= a.status === s ? 'selected' : '' %>><%= statusLabels[s] %></option>
+                        <% }) %>
+                      </select>
+                    </form>
+                  </td>
+                  <td style="min-width: 200px;">
+                    <form method="POST" action="/admin/applications/<%= a.id %>/notes" style="margin:0; display:flex; gap:6px;">
+                      <input type="text" name="admin_notes" value="<%= a.admin_notes || '' %>" placeholder="ملاحظة..." style="margin:0; padding: 8px 10px; font-size: 0.82rem;">
+                      <button type="submit" class="btn btn-outline btn-sm" style="padding: 8px 12px;">حفظ</button>
+                    </form>
+                  </td>
+                  <td><%= new Date(a.created_at).toLocaleDateString('ar-EG') %></td>
+                  <td>
+                    <form method="POST" action="/admin/applications/<%= a.id %>/delete" style="margin:0;" onsubmit="return confirm('متأكد إنك عايز تمسح الطلب ده؟');">
+                      <button type="submit" class="btn btn-danger btn-sm">حذف</button>
+                    </form>
+                  </td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      <% } %>
+    </div>
+  </div>
+  <footer class="site-footer">لوحة تحكم <%= programName %></footer>
+</body>
+</html>

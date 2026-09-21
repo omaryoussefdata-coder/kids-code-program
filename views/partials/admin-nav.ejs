@@ -1,0 +1,16 @@
+<header class="topnav">
+  <div class="container topnav-inner">
+    <div class="brand">
+      <span class="brand-badge">💻</span>
+      <span>لوحة تحكم <%= programName %></span>
+    </div>
+    <div class="nav-links">
+      <a href="/admin" class="<%= currentPath === '/admin' ? 'active' : '' %>">المتقدمين</a>
+      <a href="/admin/settings" class="<%= currentPath === '/admin/settings' ? 'active' : '' %>">الإعدادات</a>
+      <a href="/" target="_blank">شوف الصفحة العامة ↗</a>
+      <form method="POST" action="/admin/logout" style="margin:0;">
+        <button type="submit" class="linklike">خروج</button>
+      </form>
+    </div>
+  </div>
+</header>

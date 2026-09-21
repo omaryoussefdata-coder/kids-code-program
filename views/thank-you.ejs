@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <%- include('partials/head', { title: 'تم التسجيل' }) %>
+</head>
+<body>
+  <div class="thankyou-wrap">
+    <div class="thankyou-card">
+      <div class="thankyou-ico">✓</div>
+      <h2 style="margin: 6px 0 10px;">تم تسجيل <%= fullName %> بنجاح!</h2>
+      <p style="color: var(--ink-dim); line-height: 1.8;">
+        هنتواصل معاك قريب على واتساب على رقم ولي الأمر اللي كتبته، عشان نكمل باقي خطوات التسجيل.
+      </p>
+      <a href="/" class="btn btn-primary" style="margin-top: 24px;">الرجوع للصفحة الرئيسية</a>
+    </div>
+  </div>
+</body>
+</html>

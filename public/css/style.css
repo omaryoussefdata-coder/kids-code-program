@@ -1,0 +1,363 @@
+/* ============================================
+   Kids Code Program - Stylesheet
+   ثيم فاتح، حيوي، احترافي - مناسب لصفحة تقديم عامة
+   ============================================ */
+
+:root {
+  --bg: #f6f8fd;
+  --surface: #ffffff;
+  --surface-2: #f0f3fb;
+  --ink: #14213d;
+  --ink-dim: #5b6478;
+  --primary: #3652f6;
+  --primary-dark: #1e2f9c;
+  --primary-light: #e8ecff;
+  --accent: #ff7a45;
+  --accent-dark: #e35f2b;
+  --success: #16a34a;
+  --success-light: #e8f9ee;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --danger-light: #fdeaea;
+  --border: #e6e9f5;
+  --radius-lg: 26px;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow-lg: 0 30px 70px rgba(20, 33, 61, 0.14);
+  --shadow: 0 10px 30px rgba(20, 33, 61, 0.08);
+  --font: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  min-height: 100vh;
+  direction: rtl;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img, svg { max-width: 100%; display: block; }
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  border: none;
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-accent {
+  background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+  color: #fff;
+  box-shadow: 0 14px 30px rgba(255, 122, 69, 0.35);
+}
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  box-shadow: 0 14px 30px rgba(54, 82, 246, 0.3);
+}
+.btn-outline {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  color: var(--ink);
+}
+.btn-danger { background: var(--danger-light); color: var(--danger); border: 1px solid rgba(239,68,68,0.3); }
+.btn-block { width: 100%; }
+.btn-sm { padding: 9px 18px; font-size: 0.85rem; }
+
+/* ---------- Top nav (admin) ---------- */
+.topnav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.topnav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.1rem; }
+.brand-badge {
+  width: 38px; height: 38px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 1.1rem;
+}
+.nav-links { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.nav-links a, .nav-links button.linklike {
+  padding: 8px 14px; border-radius: 10px; color: var(--ink-dim);
+  font-family: var(--font); font-size: 0.92rem; font-weight: 600;
+  background: none; border: none; cursor: pointer;
+}
+.nav-links a:hover, .nav-links button.linklike:hover { background: var(--surface-2); color: var(--ink); }
+.nav-links a.active { background: var(--primary-light); color: var(--primary-dark); }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #1c2b70 0%, #3652f6 55%, #5f7bff 100%);
+  color: #fff;
+  padding: 70px 0 110px;
+}
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(0px);
+  opacity: 0.5;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 8px 16px; border-radius: 999px;
+  font-size: 0.85rem; font-weight: 700; margin-bottom: 20px;
+}
+.hero h1 { font-size: 2.6rem; line-height: 1.3; margin: 0 0 18px; font-weight: 800; }
+.hero h1 span { color: #ffd08a; }
+.hero p.lead { font-size: 1.12rem; line-height: 1.8; color: rgba(255,255,255,0.88); margin: 0 0 30px; max-width: 560px; }
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-facts { display: flex; gap: 22px; margin-top: 40px; flex-wrap: wrap; }
+.hero-fact { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 0.95rem; }
+.hero-fact .ico { width: 34px; height: 34px; border-radius: 10px; background: rgba(255,255,255,0.16); display:flex; align-items:center; justify-content:center; }
+
+/* ---------- Sections ---------- */
+.section { padding: 80px 0; }
+.section-head { text-align: center; max-width: 620px; margin: 0 auto 50px; }
+.eyebrow {
+  display: inline-block; color: var(--primary); font-weight: 800; font-size: 0.82rem;
+  letter-spacing: 0.06em; background: var(--primary-light); padding: 6px 14px; border-radius: 999px; margin-bottom: 14px;
+}
+.section-head h2 { font-size: 2rem; margin: 0 0 12px; font-weight: 800; }
+.section-head p { color: var(--ink-dim); font-size: 1.02rem; line-height: 1.8; margin: 0; }
+
+/* ---------- Program facts strip ---------- */
+.facts-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: -70px;
+  position: relative;
+  z-index: 3;
+}
+.fact-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 26px 20px;
+  text-align: center;
+}
+.fact-card .fact-ico {
+  width: 52px; height: 52px; border-radius: 14px; margin: 0 auto 14px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--primary-light); color: var(--primary);
+}
+.fact-card h3 { margin: 0 0 4px; font-size: 1.05rem; font-weight: 800; }
+.fact-card p { margin: 0; color: var(--ink-dim); font-size: 0.88rem; }
+
+/* ---------- Benefits grid ---------- */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.benefit-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.benefit-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.benefit-ico {
+  width: 50px; height: 50px; border-radius: 14px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+.benefit-card h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 800; }
+.benefit-card p { margin: 0; color: var(--ink-dim); font-size: 0.92rem; line-height: 1.7; }
+
+/* ---------- Illustration showcase ---------- */
+.showcase {
+  background: var(--surface-2);
+  border-radius: var(--radius-lg);
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.showcase h2 { font-size: 1.7rem; margin: 0 0 14px; font-weight: 800; }
+.showcase p { color: var(--ink-dim); line-height: 1.8; margin: 0 0 20px; }
+.showcase ul { margin: 0; padding: 0; list-style: none; }
+.showcase li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-weight: 600; font-size: 0.95rem; }
+.showcase li .dot {
+  width: 22px; height: 22px; border-radius: 50%; background: var(--success-light); color: var(--success);
+  display: flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0; margin-top: 2px;
+}
+
+/* ---------- Application form ---------- */
+.apply-section { background: linear-gradient(180deg, var(--surface-2), var(--bg)); }
+.apply-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 44px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.form-row { display: flex; gap: 16px; }
+.form-row > div { flex: 1; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 700; font-size: 0.92rem; color: var(--ink); }
+.form-hint { color: var(--ink-dim); font-size: 0.8rem; margin-top: 6px; }
+
+input[type=text], input[type=tel], input[type=number], select, textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 0.98rem;
+}
+select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%235b6478' stroke-width='2' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: left 16px center; padding-left: 36px; }
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(54, 82, 246, 0.14);
+}
+input.input-error, select.input-error { border-color: var(--danger); }
+
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.checkbox-row input[type=checkbox] { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--primary); flex-shrink: 0; }
+.checkbox-row label { font-size: 0.9rem; font-weight: 600; line-height: 1.7; color: var(--ink); cursor: pointer; }
+.checkbox-row.has-error { border-color: var(--danger); background: var(--danger-light); }
+
+.field-error-text { display: block; color: var(--danger); font-size: 0.8rem; margin-top: 6px; font-weight: 700; }
+
+/* ---------- Thank you page ---------- */
+.thankyou-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 30px; }
+.thankyou-card {
+  background: var(--surface); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
+  padding: 56px 44px; text-align: center; max-width: 520px;
+}
+.thankyou-ico {
+  width: 84px; height: 84px; border-radius: 50%; margin: 0 auto 22px;
+  background: var(--success-light); color: var(--success);
+  display: flex; align-items: center; justify-content: center; font-size: 2.2rem;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: #101a3d; color: rgba(255,255,255,0.7);
+  padding: 34px 0; text-align: center; font-size: 0.85rem; margin-top: 40px;
+}
+
+/* ---------- Admin ---------- */
+.page { padding: 34px 0 60px; }
+.page-header { margin-bottom: 26px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 14px; }
+.page-header h1 { font-size: 1.5rem; margin: 0 0 6px; }
+.page-header p { color: var(--ink-dim); margin: 0; font-size: 0.9rem; }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+.card + .card { margin-top: 18px; }
+
+.grid { display: grid; gap: 16px; }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.stat-tile { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+.stat-tile .num { font-size: 1.8rem; font-weight: 800; color: var(--primary-dark); }
+.stat-tile .label { color: var(--ink-dim); font-size: 0.85rem; margin-top: 4px; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+th, td { padding: 12px 10px; text-align: right; border-bottom: 1px solid var(--border); white-space: nowrap; }
+th { color: var(--ink-dim); font-weight: 700; font-size: 0.8rem; }
+.mono { font-family: "Fira Code", monospace; direction: ltr; text-align: right; }
+
+.badge { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 0.76rem; font-weight: 700; }
+.badge-new { background: var(--primary-light); color: var(--primary-dark); }
+.badge-contacted { background: #fff4e0; color: #b8720a; }
+.badge-enrolled { background: var(--success-light); color: var(--success); }
+.badge-rejected { background: var(--danger-light); color: var(--danger); }
+
+.badge-select {
+  width: auto; min-width: 0; padding: 7px 28px 7px 10px; font-size: 0.8rem; font-weight: 700;
+  border-radius: 999px; border: 1px solid var(--border); background-color: var(--surface-2);
+}
+
+.contact-links { display: flex; gap: 6px; }
+.contact-links a {
+  width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  background: var(--surface-2); font-size: 1rem;
+}
+.contact-links a.whatsapp { background: #e8f9ee; }
+.contact-links a.call { background: var(--primary-light); }
+
+.filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; align-items: center; }
+.filters input, .filters select { width: auto; min-width: 180px; margin: 0; }
+
+.alert { padding: 13px 16px; border-radius: 10px; margin-bottom: 16px; font-size: 0.9rem; font-weight: 600; }
+.alert-error { background: var(--danger-light); border: 1px solid rgba(239,68,68,0.25); color: #b91c1c; }
+.alert-success { background: var(--success-light); border: 1px solid rgba(22,163,74,0.25); color: #15803d; }
+
+.login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; background: linear-gradient(160deg, #1c2b70, #3652f6); }
+.login-card { width: 100%; max-width: 400px; background: var(--surface); border-radius: var(--radius-lg); padding: 40px 34px; box-shadow: var(--shadow-lg); text-align: center; }
+.login-card .brand-badge { margin: 0 auto 16px; width: 52px; height: 52px; font-size: 1.4rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2.1rem; }
+  .facts-strip { grid-template-columns: repeat(2, 1fr); margin-top: 26px; }
+  .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  .showcase { grid-template-columns: 1fr; padding: 30px; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .form-row { flex-direction: column; gap: 0; }
+  .apply-card { padding: 28px 22px; }
+}
+@media (max-width: 600px) {
+  .benefits-grid { grid-template-columns: 1fr; }
+  .facts-strip { grid-template-columns: 1fr; }
+  .grid-4 { grid-template-columns: 1fr; }
+  .hero { padding: 50px 0 150px; }
+  .hero h1 { font-size: 1.7rem; }
+}

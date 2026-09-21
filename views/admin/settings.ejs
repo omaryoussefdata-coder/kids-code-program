@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <%- include('../partials/head', { title: 'الإعدادات' }) %>
+</head>
+<body>
+  <%- include('../partials/admin-nav') %>
+  <div class="page container">
+    <div class="page-header">
+      <h1>إعدادات الصفحة</h1>
+      <p>اسم البرنامج والوصف اللي بيظهر للناس في الصفحة العامة.</p>
+    </div>
+
+    <% if (saved) { %><div class="alert alert-success">تم الحفظ بنجاح ✅</div><% } %>
+
+    <div class="card" style="max-width: 560px;">
+      <form method="POST" action="/admin/settings">
+        <div class="form-group">
+          <label>اسم البرنامج</label>
+          <input type="text" name="program_name" value="<%= settings.program_name || '' %>" required>
+        </div>
+        <div class="form-group">
+          <label>الوصف المختصر (بيظهر تحت العنوان الرئيسي)</label>
+          <textarea name="program_tagline" rows="3"><%= settings.program_tagline || '' %></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">حفظ</button>
+      </form>
+    </div>
+  </div>
+  <footer class="site-footer">لوحة تحكم <%= programName %></footer>
+</body>
+</html>

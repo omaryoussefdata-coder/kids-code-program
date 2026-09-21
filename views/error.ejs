@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <%- include('partials/head', { title: title }) %>
+</head>
+<body>
+  <div class="thankyou-wrap">
+    <div class="thankyou-card">
+      <div class="thankyou-ico" style="background: var(--danger-light); color: var(--danger);">!</div>
+      <h2 style="margin: 6px 0 10px;"><%= title %></h2>
+      <% if (message) { %><p style="color: var(--ink-dim);"><%= message %></p><% } %>
+      <a href="/" class="btn btn-primary" style="margin-top: 20px;">الرجوع للصفحة الرئيسية</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <%- include('partials/head', { title: 'سجّل ابنك دلوقتي' }) %>
+</head>
+<body>
+  <%- include('partials/site-nav') %>
+
+  <!-- ============ Hero ============ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="hero-badge">✦ التسجيل مفتوح دلوقتي</span>
+        <h1><%= programName %><br>لتعليم <span>البرمجة</span> بطريقة ممتعة وعملية</h1>
+        <p class="lead"><%= programTagline %>. برنامج مصمم خصيصًا يخلي ابنك يفكر بعقلية المبرمج، يحل المشاكل بنفسه، ويطوّر شخصيته ولغته من غير أي تعقيد.</p>
+        <div class="hero-cta">
+          <a href="#apply" class="btn btn-accent">سجّل دلوقتي 🚀</a>
+          <a href="#benefits" class="btn btn-outline" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.3); color:#fff;">اعرف أكتر عن البرنامج</a>
+        </div>
+      </div>
+      <div>
+        <%- include('partials/illustration-hero') %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Quick facts strip ============ -->
+  <div class="container">
+    <div class="facts-strip">
+      <div class="fact-card">
+        <div class="fact-ico">🌐</div>
+        <h3>أونلاين بالكامل</h3>
+        <p>تقدر تتابع من أي مكان في مصر</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-ico">🗓️</div>
+        <h3>4 شهور</h3>
+        <p>مدة البرنامج الكاملة</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-ico">🏆</div>
+        <h3>شهادة معتمدة</h3>
+        <p>بعد إتمام البرنامج بنجاح</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-ico">🧒</div>
+        <h3>من 8 لـ 16 سنة</h3>
+        <p>لكل الأعمار دي بالظبط</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ Benefits ============ -->
+  <section class="section" id="benefits">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">مزايا البرنامج</span>
+        <h2>ابنك مش هيتعلم برمجة بس</h2>
+        <p>البرنامج مبني عشان يطوّر عند الطفل مهارات هتفيده في أي مجال يختاره في المستقبل، مش بس في الكمبيوتر.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-ico" style="background: var(--primary-light); color: var(--primary);">🧠</div>
+          <h3>التفكير البرمجي</h3>
+          <p>يتعلم يقسّم أي مشكلة كبيرة لخطوات بسيطة، وهي مهارة أساسية في أي مجال هيشتغل فيه بعد كده.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico" style="background: #fff4e0; color: #b8720a;">⚙️</div>
+          <h3>الحلول العملية</h3>
+          <p>بيتدرب على إنه ينفذ أفكاره فعليًا كمشاريع حقيقية، مش بس معلومات نظرية.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico" style="background: var(--success-light); color: var(--success);">🌱</div>
+          <h3>تطوير الذات</h3>
+          <p>بيكتسب ثقة بنفسه مع كل مشروع بيخلصه لوحده من الأول للآخر.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico" style="background: #eef2ff; color: #4338ca;">🗣️</div>
+          <h3>تقوية اللغة</h3>
+          <p>البرمجة بتتعلم بمصطلحات إنجليزية، فبيتحسن عنده الاستيعاب والمفردات مع الوقت.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico" style="background: #fdf2f8; color: #be185d;">✨</div>
+          <h3>بناء الشخصية</h3>
+          <p>الصبر والمثابرة على حل مشكلة لحد ما تظبط، من أهم صفات الشخصية اللي البرنامج بيبنيها.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico" style="background: #ecfeff; color: #0e7490;">🧩</div>
+          <h3>طريقة التفكير</h3>
+          <p>بيتعلم يحلل الأمور بمنطق ومراحل واضحة، بدل ما ياخد قرارات عشوائية.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico" style="background: var(--primary-light); color: var(--primary);">🔭</div>
+          <h3>الرؤية العامة للمجال</h3>
+          <p>بيتعرف بدري إزاي التكنولوجيا شغالة حواليه، وده بيفتحله أبواب لمجالات المستقبل.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Showcase / why online ============ -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="showcase">
+        <div>
+          <span class="eyebrow">ليه أونلاين بالكامل؟</span>
+          <h2>يتعلم من البيت، من غير أي تعقيد</h2>
+          <p>البرنامج مصمم بحيث يقدر أي طفل يشارك من أي محافظة، من غير ما تحتاج تتنقل أو تلتزم بمكان معين.</p>
+          <ul>
+            <li><span class="dot">✓</span> جلسات أونلاين تفاعلية مباشرة، مش تسجيلات بس.</li>
+            <li><span class="dot">✓</span> مجموعات صغيرة عشان كل طفل ياخد وقته.</li>
+            <li><span class="dot">✓</span> مشاريع حقيقية يقدر يفتخر بيها في الآخر.</li>
+            <li><span class="dot">✓</span> شهادة معتمدة بعد إتمام الـ 4 شهور بنجاح.</li>
+          </ul>
+        </div>
+        <div>
+          <%- include('partials/illustration-globe') %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Application form ============ -->
+  <section class="section apply-section" id="apply">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">التسجيل</span>
+        <h2>قدّم دلوقتي</h2>
+        <p>املا البيانات دي وهنتواصل معاك على واتساب لاستكمال باقي الخطوات.</p>
+      </div>
+
+      <div class="apply-card">
+        <form method="POST" action="/apply" id="applyForm" novalidate>
+
+          <div class="form-group">
+            <label>اسم الطفل رباعي بالكامل</label>
+            <input
+              type="text"
+              name="full_name"
+              id="full_name"
+              placeholder="مثال: يوسف أحمد محمد علي"
+              value="<%= values.full_name || '' %>"
+              required
+            >
+            <span class="field-error-text" id="full_name_error" style="<%= errors.full_name ? '' : 'display:none;' %>">
+              <%= errors.full_name || 'لازم تكتب الاسم رباعي كامل (4 كلمات على الأقل).' %>
+            </span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>سن الطفل</label>
+              <select name="age" id="age" required>
+                <option value="" disabled <%= !values.age ? 'selected' : '' %>>اختار السن</option>
+                <% for (let a = minAge; a <= maxAge; a++) { %>
+                  <option value="<%= a %>" <%= String(values.age) === String(a) ? 'selected' : '' %>><%= a %> سنة</option>
+                <% } %>
+              </select>
+              <% if (errors.age) { %><span class="field-error-text"><%= errors.age %></span><% } %>
+            </div>
+            <div class="form-group">
+              <label>المحافظة</label>
+              <select name="governorate" id="governorate" required>
+                <option value="" disabled <%= !values.governorate ? 'selected' : '' %>>اختار المحافظة</option>
+                <% governorates.forEach(function(g) { %>
+                  <option value="<%= g %>" <%= values.governorate === g ? 'selected' : '' %>><%= g %></option>
+                <% }) %>
+              </select>
+              <% if (errors.governorate) { %><span class="field-error-text"><%= errors.governorate %></span><% } %>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>رقم موبايل الطفل</label>
+              <input type="tel" name="student_phone" id="student_phone" inputmode="numeric" maxlength="11"
+                placeholder="01xxxxxxxxx" value="<%= values.student_phone || '' %>" required>
+              <% if (errors.student_phone) { %><span class="field-error-text"><%= errors.student_phone %></span><% } %>
+            </div>
+            <div class="form-group">
+              <label>رقم موبايل ولي الأمر</label>
+              <input type="tel" name="guardian_phone" id="guardian_phone" inputmode="numeric" maxlength="11"
+                placeholder="01xxxxxxxxx" value="<%= values.guardian_phone || '' %>" required>
+              <% if (errors.guardian_phone) { %><span class="field-error-text"><%= errors.guardian_phone %></span><% } %>
+            </div>
+          </div>
+
+          <div class="checkbox-row <%= errors.whatsapp_confirmed ? 'has-error' : '' %>">
+            <input type="checkbox" name="whatsapp_confirmed" id="whatsapp_confirmed" <%= values.whatsapp_confirmed ? 'checked' : '' %>>
+            <label for="whatsapp_confirmed">أؤكد إن رقم الموبايل اللي كتبته فوق معاه واتساب شغال، لأن التواصل بخصوص التسجيل هيكون من خلاله.</label>
+          </div>
+          <% if (errors.whatsapp_confirmed) { %><span class="field-error-text" style="margin-top:-8px;"><%= errors.whatsapp_confirmed %></span><% } %>
+
+          <div class="checkbox-row <%= errors.terms_acknowledged ? 'has-error' : '' %>" style="margin-top:14px;">
+            <input type="checkbox" name="terms_acknowledged" id="terms_acknowledged" <%= values.terms_acknowledged ? 'checked' : '' %>>
+            <label for="terms_acknowledged">
+              أنا على علم بإن البرنامج أونلاين بالكامل، مدته 4 شهور، وأنه هيكون فيه مصاريف إدارية قيمتها 400 جنيه مصري، وموافق على التقديم على أساس دا.
+            </label>
+          </div>
+          <% if (errors.terms_acknowledged) { %><span class="field-error-text" style="margin-top:-8px;"><%= errors.terms_acknowledged %></span><% } %>
+
+          <button type="submit" class="btn btn-accent btn-block" style="margin-top: 24px;">سجّل الطفل دلوقتي</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <%= programName %> © <%= new Date().getFullYear() %>
+  </footer>
+
+  <script>
+    (function () {
+      var EGYPT_PHONE_REGEX = /^01[0125][0-9]{8}$/;
+      var fullNameInput = document.getElementById('full_name');
+      var fullNameError = document.getElementById('full_name_error');
+
+      function toggleError(inputEl, errorEl, isValid, message) {
+        if (isValid) {
+          if (errorEl) errorEl.style.display = 'none';
+          inputEl.classList.remove('input-error');
+        } else {
+          if (errorEl) {
+            if (message) errorEl.textContent = message;
+            errorEl.style.display = 'block';
+          }
+          inputEl.classList.add('input-error');
+        }
+      }
+
+      function validateFullName() {
+        var parts = fullNameInput.value.trim().split(/\s+/).filter(Boolean);
+        var isValid = parts.length >= 4;
+        toggleError(fullNameInput, fullNameError, isValid, 'لازم تكتب الاسم رباعي كامل (4 كلمات على الأقل).');
+        return isValid;
+      }
+
+      fullNameInput.addEventListener('input', validateFullName);
+
+      var studentPhoneInput = document.getElementById('student_phone');
+      var guardianPhoneInput = document.getElementById('guardian_phone');
+      function validatePhone(el) {
+        var val = el.value.trim();
+        var isValid = val === '' || EGYPT_PHONE_REGEX.test(val);
+        toggleError(el, null, isValid);
+        return val !== '' && EGYPT_PHONE_REGEX.test(val);
+      }
+      studentPhoneInput.addEventListener('input', function () { validatePhone(studentPhoneInput); });
+      guardianPhoneInput.addEventListener('input', function () { validatePhone(guardianPhoneInput); });
+
+      document.getElementById('applyForm').addEventListener('submit', function (e) {
+        var ok = validateFullName();
+        if (!validatePhone(studentPhoneInput)) ok = false;
+        if (!validatePhone(guardianPhoneInput)) ok = false;
+        if (!document.getElementById('whatsapp_confirmed').checked) ok = false;
+        if (!document.getElementById('terms_acknowledged').checked) ok = false;
+        if (!ok) e.preventDefault();
+      });
+    })();
+  </script>
+</body>
+</html>
